@@ -12,7 +12,7 @@ app.use(bodyParser.json({limit:"30mb" , extended : true}));
 app.use(cors());
 
 app.get("/" , (req,res) =>{
-    res.send("FullstackBlog.");
+    res.send("FullstackBlog.....");
 });
 
 const PORT = process.env.PORT || 5000;
