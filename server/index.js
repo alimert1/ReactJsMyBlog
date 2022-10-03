@@ -3,10 +3,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
+import postRoutes from "./routes/posts.js";
 
 
 const app = express();
-dotenv.config();
+dotenv.config(); 
 
 app.use(bodyParser.json({limit:"30mb" , extended : true}));
 app.use(bodyParser.json({limit:"30mb" , extended : true}));
@@ -18,6 +19,8 @@ app.get("/" , (req,res) =>{
         message: "I devoloping my blog website." , 
     });
 });
+
+app.use("/posts" , postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
