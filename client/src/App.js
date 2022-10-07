@@ -48,7 +48,7 @@ const App = () => {
                 <a href="http://localhost:3000/posts">Mert's Blog</a>
              </Typography>
              <Button color = 'primary' variant='outlined' startIcon ={<PenIcon />}>
-                  Yeni Yazı
+                  Yeni Yazııı
              </Button>
           </Toolbar>
         </AppBar>
