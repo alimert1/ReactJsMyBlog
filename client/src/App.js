@@ -14,6 +14,7 @@ import { BrowserRouter as Router , Routes , Route , Navigate } from 'react-route
 import PenIcon from '@material-ui/icons/Create';
 import PostsList from './components/PostsLists';
 import AddPostForm from './components/AddPostForm';
+import { fetchPosts } from './api';
 
 const useStyles = makeStyles((theme) =>({
   root : {
@@ -29,16 +30,19 @@ const useStyles = makeStyles((theme) =>({
     marginTop : theme.spacing(3),
   },
 } ) );
+
+
+
 const App = () => {
   const [ open , setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
 
   const classes = useStyles();
@@ -59,7 +63,10 @@ const App = () => {
               >
                 <a href="http://localhost:3000/posts">Ali Mert's Blogg</a>
              </Typography>
-             <Button color = 'primary' variant='outlined' startIcon ={<PenIcon />}>
+             <Button color = 'primary' variant='outlined' startIcon ={<PenIcon />}
+             onClick = {handleOpen}
+             
+             >
                   Yeni Yazıı
              </Button>
           </Toolbar>

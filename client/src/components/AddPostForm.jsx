@@ -53,7 +53,7 @@ const AddPostForm = ({ open , handleClose }) => {
         //Dispatch create post action
         dispatch(createPost({ ...data, image: file}));
         clearForm();
-    }
+    };
 
     const clearForm = () => {
         reset();
