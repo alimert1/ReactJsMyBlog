@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
   CssBaseline,
@@ -13,6 +13,7 @@ import {
 import { BrowserRouter as Router , Routes , Route , Navigate } from 'react-router-dom';
 import PenIcon from '@material-ui/icons/Create';
 import PostsList from './components/PostsLists';
+import AddPostForm from './components/AddPostForm';
 
 const useStyles = makeStyles((theme) =>({
   root : {
@@ -29,6 +30,17 @@ const useStyles = makeStyles((theme) =>({
   },
 } ) );
 const App = () => {
+  const [ open , setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+
   const classes = useStyles();
     return (
       <>
@@ -45,7 +57,7 @@ const App = () => {
              color='secondary'
               className={classes.title}
               >
-                <a href="http://localhost:3000/posts">Mert's Blog</a>
+                <a href="http://localhost:3000/posts">Ali Mert's Blog</a>
              </Typography>
              <Button color = 'primary' variant='outlined' startIcon ={<PenIcon />}>
                   Yeni Yazııı
@@ -65,6 +77,9 @@ const App = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <AddPostForm open = {open} handleClose = {handleClose} />
+
       </>
     )
 }
