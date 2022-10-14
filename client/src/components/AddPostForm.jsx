@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
-import { makeStyles } from '@material-ui/core'
-import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
+import { useDispatch } from "react-redux";
+import { makeStyles } from '@material-ui/core'
 import {
     Button,
     TextField,
@@ -17,6 +17,7 @@ import {
 import { useForm , Controller} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
+import { createPost } from "../actions/post";
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,11 +47,11 @@ const AddPostForm = ({ open , handleClose }) => {
     const { register , handleSubmit , control , errors , reset} = useForm({
         resolver: yupResolver(postSchema),
     });
+  
 
     const onSubmit = (data) => {
-        console.log(data);
         //Dispatch create post action
-        //dispatch(createPost());
+        dispatch(createPost({ ...data, image: file}));
         clearForm();
     }
 
@@ -79,7 +80,8 @@ const AddPostForm = ({ open , handleClose }) => {
                             variant="outlined"
                             className={classes.textfield}
                             size="small"
-                            error={errors.title ? true:false}
+                            //error={errors.title ? true:false}
+                            error={errors?.title ? true : false}
                             fullWidth
                         />
                          <TextField
@@ -89,7 +91,7 @@ const AddPostForm = ({ open , handleClose }) => {
                             variant="outlined"
                             className={classes.textfield}
                             size="small"
-                            error={errors.subtitle ? true:false}
+                            error={errors?.subtitle ? true:false}
                             fullWidth
                         />
 
@@ -114,7 +116,7 @@ const AddPostForm = ({ open , handleClose }) => {
 
                             name = "tag"
                             control = {control}
-                            error = {errors.tag ? true:false}
+                            error = {errors?.tag ? true:false}
                             defaultValue={tags[0]}
                                                    
                         />
@@ -130,7 +132,7 @@ const AddPostForm = ({ open , handleClose }) => {
                             className={classes.textfield}
                             size="small"
                             inputRef={register}
-                            error={errors.content ? true:false}
+                            error={errors?.content ? true:false}
                             fullWidth
                         />
 
