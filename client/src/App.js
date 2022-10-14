@@ -57,10 +57,10 @@ const App = () => {
              color='secondary'
               className={classes.title}
               >
-                <a href="http://localhost:3000/posts">Ali Mert's Blog</a>
+                <a href="http://localhost:3000/posts">Ali Mert's Blogg</a>
              </Typography>
              <Button color = 'primary' variant='outlined' startIcon ={<PenIcon />}>
-                  Yeni Yazııı
+                  Yeni Yazıı
              </Button>
           </Toolbar>
         </AppBar>

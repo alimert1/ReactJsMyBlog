@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { makeStyles } from '@material-ui/core'
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
@@ -17,7 +17,6 @@ import {
 import { useForm , Controller} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
-import { useState } from 'react';
 
 
 const useStyles = makeStyles(theme => ({
@@ -149,7 +148,6 @@ const AddPostForm = ({ open , handleClose }) => {
              variant="outlined" 
              color = "primary"
              onClick = {() => handleSubmit(onSubmit)()}
-
              >
                 Yayınla
                 </Button>
